@@ -1,14 +1,14 @@
 ## Connect Four Pseudocode
 
 ### Initialize variables
-* Gameboard (array)
+* Gameboard (array of arrays representing columns)
 * Current player
 * Winner
 
 ---
 
 ### Game start
-* On start function, all spaces on the 7x7 gameboard (values in the array) start with a value of 0. Gameboard and reset button are set up to listen for user clicks
+* On start function, all spaces on the 6x7 gameboard (values in the array) start with a value of 0. Gameboard and reset button are set up to listen for user clicks
 
 ### Current player's turn
 * Gameboard listens for current player's click, which drops a game piece in chosen column
@@ -29,6 +29,3 @@
 * Reset function removes all event listeners and sets all values in gameboard back to 0
 	* Render function runs to reflect array's values and clear gameboard of game pieces
 	* Start functions runs again
-
-
-array of arrays representing column and push values
