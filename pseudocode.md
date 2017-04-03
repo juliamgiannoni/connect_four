@@ -2,13 +2,14 @@
 
 ### Initialize variables
 * Gameboard (array of arrays representing columns)
+* Message
 * Current player
 * Winner
 
 ---
 
 ### Game start
-* On start function, all spaces on the 6x7 gameboard (values in the array) start with a value of 0. Gameboard and reset button are set up to listen for user clicks
+* On start function, all spaces on the 6 (down) x 7 (across) gameboard (values in the array) start with a value of 0. Gameboard and reset button are set up to listen for user clicks
 
 ### Current player's turn
 * Gameboard listens for current player's click, which drops a game piece in chosen column

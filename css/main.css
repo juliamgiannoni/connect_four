@@ -1,0 +1,128 @@
+header, footer {
+  width: 1400px;
+  position: relative;
+  text-align: center;
+}
+
+main {
+  margin: 15px 240px;
+  width: 1000px;
+  position: relative;
+}
+
+#selector {
+  padding: 0px 7px;
+  display: block;
+}
+
+.arrow {
+  width: 80px;
+  height: 50px;
+  display: inline-block;
+  margin: 8px 5px;
+}
+.arrow:hover {
+  background-image: url(../assets/hoverarrow.png);
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#board {
+  border: solid 1px rgb(1, 122, 221);
+  padding: 10px 10px 6px 10px;
+  display: inline-block;
+  background-color: rgb(1, 122, 221);
+}
+
+#board > div {
+  display: inline-block;
+}
+
+#column1 > div {
+  width: 80px;
+  height: 80px;
+  margin: 8px 5px;
+  background-color: white;
+}
+
+#column2 > div {
+  width: 80px;
+  height: 80px;
+  margin: 8px 5px;
+  background-color: white;
+}
+
+#column3 > div {
+  width: 80px;
+  height: 80px;
+  margin: 8px 5px;
+  background-color: white;
+}
+
+#column4 > div {
+  width: 80px;
+  height: 80px;
+  margin: 8px 5px;
+  background-color: white;
+}
+
+#column5 > div {
+  width: 80px;
+  height: 80px;
+  margin: 8px 5px;
+  background-color: white;
+}
+
+#column6 > div {
+  width: 80px;
+  height: 80px;
+  margin: 8px 5px;
+  background-color: white;
+}
+
+#column7 > div {
+  width: 80px;
+  height: 80px;
+  margin: 8px 5px;
+  background-color: white;
+}
+
+#sidebar {
+  width: 260px;
+  margin: 10px 25px;
+  display: inline-block;
+  position: absolute;
+}
+
+#sidebar button {
+  display: block;
+  position: relative;
+  margin: 15px auto;
+  font-size: 12px;
+  color: white;
+  padding: 15px;
+  background-color: rgb(1, 122, 221);
+  border: solid 1px rgb(1, 122, 221);
+}
+
+#sidebar button:hover {
+  background-color: white;
+  color: black;
+}
+
+#instructions {
+  margin: 40px auto;
+}
+
+#instructions h4 {
+  color: black;
+  text-align: center;
+  line-height: 100%;
+}
+
+
+footer {
+  clear: both;
+  padding-top: 40px;
+  padding-bottom: 10px;
+}
