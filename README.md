@@ -1,5 +1,5 @@
 # Connect Four
--
+---
 By Julia Yi
 
 Connect Four is a two-player game in which each player takes turns dropping a colored disc into a 6 x 7 grid. Each disc is dropped down the grid and the pieces are stacked vertically over time. 
