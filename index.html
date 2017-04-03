@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8">
     <link rel="stylesheet" href="css/main.css">
-
-  <title>Connect Four</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+    <title>Connect Four</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 </head>
 <body>
 
 <header>
   <h1>CONNECT FOUR</h1>
-  <h4>Press start button for new game.</h4>
+  <h4 id="message">Press start button for new game.</h4>
 </header>
 
   <main>
@@ -29,8 +29,8 @@
     <div id="board">
 
       <div id="column1">
-        <div id="1_1"></div>
-        <div id="1_2"></div>
+        <div id="1_1"><img src="./assets/redpiece.png"></div>
+        <div id="1_2"><img src="./assets/yellowpiece.png"></div>
         <div id="1_3"></div>
         <div id="1_4"></div>
         <div id="1_5"></div>
