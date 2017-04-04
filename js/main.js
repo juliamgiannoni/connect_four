@@ -23,6 +23,7 @@ function startGame() { //adds click event listeners to gameboard
     0, 0, 0, 0, 0, 0, 0
   ];
   currentPlayer = player1;
+  winner = '';
   for (var i = 0; i < gameBoard.length; i++) {
     gameBoard[i].addEventListener('click', updateBoard);
   }
@@ -50,18 +51,12 @@ function updateBoard(evt) {
   findWinner();
   console.log(cell);
   render();
-  // run render logic
 }
 
 function render() {
   for (var i = 0; i < grid.length; i++) {
     if (grid[i]) {
-      if (grid[i] === 1) {
-        gameBoard[i].innerHTML = 'red';
-      }
-      if (grid[i] === -1) {
-        gameBoard[i].innerHTML = 'yellow';
-      }
+      grid[i] === player1 ? gameBoard[i].innerHTML = '<img src="./assets/redpiece.png">' : gameBoard[i].innerHTML = '<img src="./assets/yellowpiece.png">';
     }
     if (!grid[i]) {
       gameBoard[i].innerHTML = '';
