@@ -94,7 +94,7 @@ function findWinner() {
   }
 
   if (winner) {
-    message.innerHTML = winner === player1 ? `Player Red wins! Press 'New Game' button to reset game` : `Player Yellow wins! Press 'New Game' button to reset game`;
+    message.innerHTML = winner === player1 ? `Player Red wins! Reset game.` : `Player Yellow wins! Reset game.`;
     for (var i = 0; i < gameBoard.length; i++) {
       gameBoard[i].removeEventListener('click', updateBoard);
     }
@@ -108,6 +108,6 @@ function checkForTie() {
     return element === 0;
   });
   if (checkForZeros !== 0) {
-    message.innerHTML = `Game is tied. Press 'New Game' to reset board.`;
+    message.innerHTML = `Game is tied. Reset game.`;
   }
 }

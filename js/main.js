@@ -5,6 +5,7 @@ var player2 = -1;
 var winner;
 var message = document.querySelector('#message')
 var gameBoard = document.getElementsByClassName('square')
+var selector = document.querySelector('#columnselector')
 
 initialize();
 
@@ -22,13 +23,14 @@ function startGame() { //adds click event listeners to gameboard
     0, 0, 0, 0, 0, 0, 0,
     0, 0, 0, 0, 0, 0, 0
   ];
-  currentPlayer = player1;
   winner = '';
+  currentPlayer = player1;
+  selector.addEventListener('click', updateBoard);
+  message.innerHTML = `Player Red's turn. Pick a column to drop your piece.`;
   for (var i = 0; i < gameBoard.length; i++) {
     gameBoard[i].addEventListener('click', updateBoard);
   }
-  document.querySelector('#columnselector').addEventListener('click', updateBoard);
-  message.innerHTML = `Player Red's turn. Pick a column to drop your piece.`;
+  document.querySelector('button').innerHTML = 'RESET GAME';
   renderBoard();
 }
 
