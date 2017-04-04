@@ -14,19 +14,19 @@ main {
   position: relative;
 }
 
-#selector {
+#columnselector {
   padding: 0px 7px;
   display: block;
 }
 
-.arrow {
+.arrows {
   width: 80px;
   height: 50px;
   display: inline-block;
-  margin: 8px 5px;
+  margin: 0px 5px;
 }
 
-.arrow:hover {
+.arrows:hover {
   background-image: url(../assets/hoverarrow.png);
   background-position: center;
   background-repeat: no-repeat;
@@ -39,58 +39,13 @@ main {
   background-color: rgb(1, 122, 221);
 }
 
-#board > div {
+.squares {
+  width: 80px;
+  height: 80px;
+  margin: 8px 5px;
+  background-color: white;
   display: inline-block;
   vertical-align: top;
-}
-
-#column1 > div {
-  width: 80px;
-  height: 80px;
-  margin: 8px 5px;
-  background-color: white;
-}
-
-#column2 > div {
-  width: 80px;
-  height: 80px;
-  margin: 8px 5px;
-  background-color: white;
-}
-
-#column3 > div {
-  width: 80px;
-  height: 80px;
-  margin: 8px 5px;
-  background-color: white;
-}
-
-#column4 > div {
-  width: 80px;
-  height: 80px;
-  margin: 8px 5px;
-  background-color: white;
-}
-
-#column5 > div {
-  width: 80px;
-  height: 80px;
-  margin: 8px 5px;
-  background-color: white;
-}
-
-#column6 > div {
-  width: 80px;
-  height: 80px;
-  margin: 8px 5px;
-  background-color: white;
-}
-
-#column7 > div {
-  width: 80px;
-  height: 80px;
-  margin: 8px 5px;
-  background-color: white;
 }
 
 #sidebar {
