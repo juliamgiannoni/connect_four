@@ -15,7 +15,6 @@ The first player to place four of their discs in a row wins the game. If the ent
 1. HTML
 2. CSS
 3. JavaScript
-4. jQuery
 
 ## Getting Started
 
