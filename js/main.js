@@ -13,7 +13,7 @@ function initialize() {
 }
 
 function startGame() { //adds click event listeners to gameboard
-  console.log('new game started');
+  console.log('New game started');
   grid = [
     0, 0, 0, 0, 0, 0, 0,
     0, 0, 0, 0, 0, 0, 0,
@@ -27,8 +27,9 @@ function startGame() { //adds click event listeners to gameboard
   for (var i = 0; i < gameBoard.length; i++) {
     gameBoard[i].addEventListener('click', updateBoard);
   }
-  message.innerHTML = 'Player ' + currentPlayer + `'s turn. Pick a column to drop your piece.`;
-  render();
+  document.querySelector('#columnselector').addEventListener('click', updateBoard);
+  message.innerHTML = `Player Red's turn. Pick a column to drop your piece.`;
+  renderBoard();
 }
 
 
@@ -42,18 +43,14 @@ function updateBoard(evt) {
     } else {
       grid[cell] = value;
       currentPlayer = player1;
-      //run win logic
     }
-  } else {
-      console.log("Already taken. Play another cell.");
-  } message.innerHTML = 'Player ' + currentPlayer + `'s turn. Pick a column to drop your piece.`;
-  console.log(grid);
+  }
+  message.innerHTML = currentPlayer === player1 ? `Player Red's turn. Pick a column to drop your piece.` : `Player Yellow's turn. Pick a column to drop your piece.`;
   findWinner();
-  console.log(cell);
-  render();
+  renderBoard();
 }
 
-function render() {
+function renderBoard() {
   for (var i = 0; i < grid.length; i++) {
     if (grid[i]) {
       grid[i] === player1 ? gameBoard[i].innerHTML = '<img src="./assets/redpiece.png">' : gameBoard[i].innerHTML = '<img src="./assets/yellowpiece.png">';
