@@ -46,6 +46,7 @@ main {
   background-color: white;
   display: inline-block;
   vertical-align: top;
+  border-radius: 40px;
 }
 
 #sidebar {
