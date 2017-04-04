@@ -13,7 +13,7 @@ function initialize() {
 }
 
 function startGame() { //adds click event listeners to gameboard
-  alert('new game started');
+  console.log('new game started');
   array = [
     0, 0, 0, 0, 0, 0, 0,
     0, 0, 0, 0, 0, 0, 0,
@@ -38,16 +38,17 @@ function updateBoard(evt) {
     if (currentPlayer === player1) {
       array[square] = value;
       currentPlayer = player2;
-      //run win logic
     } else {
       array[square] = value;
       currentPlayer = player1;
       //run win logic
     }
   } else {
-      alert("Already taken. Play another cell.");
+      console.log("Already taken. Play another cell.");
   } message.innerHTML = 'Player ' + currentPlayer + `'s turn. Pick a column to drop your piece.`;
   console.log(array);
+  findWinner();
+  console.log(square);
   // run render logic
 }
 
