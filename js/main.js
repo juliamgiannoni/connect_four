@@ -131,17 +131,15 @@ function updateBoard(evt) {
   var selectedColumn = evt.target.id;
   var value = currentPlayer === player1 ? 1 : -1;
   if (selectedColumn === 'column1') {
-    var firstColumn = [grid[0], grid[7], grid[14], grid[21], grid[28], grid[35]];
-    console.log(firstColumn);
   }
 
 
   if (grid[35] === 0) {
       grid[35] = value;
-  }
-  if (grid[35] !== 0) {
+      currentPlayer = player2
+  } else {
       grid[28] = value;
-      currentPlayer = player2;
+      currentPlayer = player1;
   }
 
   // if (grid[35] !== 0) {
