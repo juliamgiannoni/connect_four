@@ -73,7 +73,37 @@ function onSelectorClick(evt) {
     console.log(grid[6], grid[13], grid[20], grid[27], grid[34], grid[41]);
   }
 
+  // getLastOpenSpot on that column
+
+  // place the disk on that last spot
+
 }
+
+function getLastOpenSpot(columnNumber, columnArray) {
+
+  // return [row, column]
+}
+
+function placeDisk(row, column) {
+  // update the grid accordingly
+  grid[35] = 1
+}
+
+// figure out a way to produce the row number of the last 0
+  // examples: click on column id = 2 =>
+    // say row = 3 (4th row)
+    // we know we clicked on column 2 (3rd column)
+    // write a function that spits out [3, 2]
+  // example: click on column id = 1
+    // row = 4
+    // column = 1
+    // spit out [4, 1]
+  // example: click on column id = 0
+    // row = 5
+    // column = 0
+    // spit out [5, 0]
+
+
 
 
 function getColumnElements(column) { //
