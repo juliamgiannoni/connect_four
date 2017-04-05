@@ -34,6 +34,12 @@ function startGame() { //adds click event listeners to gameboard
   renderBoard();
 }
 
+function test() {
+  var state = "[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,-1,1,0,0,0,0]"
+  grid = JSON.parse(state);
+  renderBoard();
+}
+
 
 function updateBoard(evt) {
   var cell = evt.target.id;
