@@ -25,7 +25,7 @@ function startGame() { //adds click event listeners to gameboard
   ];
   winner = '';
   currentPlayer = player1;
-  selector.addEventListener('click', updateBoard);
+  selector.addEventListener('click', onSelectorClick);
   message.innerHTML = `Player Red's turn. Pick a column to drop your piece.`;
   for (var i = 0; i < gameBoard.length; i++) {
     gameBoard[i].addEventListener('click', updateBoard);
@@ -40,6 +40,48 @@ function test() {
   renderBoard();
 }
 
+function onSelectorClick(evt) {
+  // console.log(evt.target);
+  // grab the column number that you clicked on
+  var column = evt.target.id;
+
+  // use getColumnElements to grab ALL the elements of that column
+  getColumnElements(column);
+  console.log(column);
+
+}
+
+
+function getColumnElements(column) { //
+  for (var i = 0; i < grid.length; i = i + 7) {
+    var firstColumn = document.querySelector('#column1');
+    firstColumn = firstColumn + grid[i];
+  }
+  for (var i = 1; i < grid.length; i = i + 7) {
+    var secondColumn = document.querySelector('#column2');
+    secondColumn = secondColumn + grid[i];
+  }
+  for (var i = 2; i < grid.length; i = i + 7) {
+    var thirdColumn = document.querySelector('#column3');
+    thirdColumn = thirdColumn + grid[i];
+  }
+  for (var i = 3; i < grid.length; i = i + 7) {
+    var fourthColumn = document.querySelector('#column4');
+    fourthColumn = fourthColumn + grid[i];
+  }
+  for (var i = 4; i < grid.length; i = i + 7) {
+    var fifthColumn = document.querySelector('#column5');
+    fifthColumn = fifthColumn + grid[i];
+  }
+  for (var i = 5; i < grid.length; i = i + 7) {
+    var sixthColumn = document.querySelector('#column6');
+    sixthColumn = sixthColumn + grid[i];
+  }
+  for (var i = 6; i < grid.length; i = i + 7) {
+    var seventhColumn = document.querySelector('#column7');
+    seventhColumn = seventhColumn + grid[i];
+  }
+}
 
 function updateBoard(evt) {
   var cell = evt.target.id;
