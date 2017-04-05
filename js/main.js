@@ -44,43 +44,41 @@ function onSelectorClick(evt) {
   // console.log(evt.target);
   // grab the column number that you clicked on
   var column = evt.target.id;
-
   // use getColumnElements to grab ALL the elements of that column
-  getColumnElements(column);
-  console.log(column);
+  // getColumnElements(column);
+  console.log('column =', column)
+  var columnNumber = 0;
+  if (column === 'column1') {
+    console.log('grid[0]', grid[0])
+    var column1 = [grid[0], grid[7], grid[14], grid[21], grid[28], grid[35]];
+    console.log(column1);
+    columnNumber = 0
+  }
+  if (column === 'column2') {
+    console.log(grid[1], grid[8], grid[15], grid[22], grid[29], grid[36]);
+  }
+  if (column === 'column3') {
+    console.log(grid[2], grid[9], grid[16], grid[23], grid[30], grid[37]);
+  }
+  if (column === 'column4') {
+    console.log(grid[3], grid[10], grid[17], grid[24], grid[31], grid[38]);
+  }
+  if (column === 'column5') {
+    console.log(grid[4], grid[11], grid[18], grid[25], grid[32], grid[39]);
+  }
+  if (column === 'column6') {
+    console.log(grid[5], grid[12], grid[19], grid[26], grid[33], grid[40]);
+  }
+  if (column === 'column7') {
+    console.log(grid[6], grid[13], grid[20], grid[27], grid[34], grid[41]);
+  }
 
 }
 
 
 function getColumnElements(column) { //
-  for (var i = 0; i < grid.length; i = i + 7) {
-    var firstColumn = document.querySelector('#column1');
-    firstColumn = firstColumn + grid[i];
-  }
-  for (var i = 1; i < grid.length; i = i + 7) {
-    var secondColumn = document.querySelector('#column2');
-    secondColumn = secondColumn + grid[i];
-  }
-  for (var i = 2; i < grid.length; i = i + 7) {
-    var thirdColumn = document.querySelector('#column3');
-    thirdColumn = thirdColumn + grid[i];
-  }
-  for (var i = 3; i < grid.length; i = i + 7) {
-    var fourthColumn = document.querySelector('#column4');
-    fourthColumn = fourthColumn + grid[i];
-  }
-  for (var i = 4; i < grid.length; i = i + 7) {
-    var fifthColumn = document.querySelector('#column5');
-    fifthColumn = fifthColumn + grid[i];
-  }
-  for (var i = 5; i < grid.length; i = i + 7) {
-    var sixthColumn = document.querySelector('#column6');
-    sixthColumn = sixthColumn + grid[i];
-  }
-  for (var i = 6; i < grid.length; i = i + 7) {
-    var seventhColumn = document.querySelector('#column7');
-    seventhColumn = seventhColumn + grid[i];
-  }
+
+
 }
 
 function updateBoard(evt) {
