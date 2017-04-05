@@ -9,7 +9,7 @@ var selector = document.querySelector('#columnselector')
 
 initialize();
 
-function initialize() {
+function initialize() { //sets up game to be played
   document.querySelector('#newgame').addEventListener('click', startGame);
 }
 
@@ -27,15 +27,16 @@ function startGame() { //adds click event listeners to gameboard
   currentPlayer = player1;
   selector.addEventListener('click', updateBoard);
   message.innerHTML = `Player Red's turn. Pick a column to drop your piece.`;
-  for (var i = 0; i < gameBoard.length; i++) {
-    gameBoard[i].addEventListener('click', updateBoard);
-  }
+  // for (var i = 0; i < gameBoard.length; i++) {
+  //   gameBoard[i].addEventListener('click', updateBoard);
+  // }
   document.querySelector('button').innerHTML = 'RESET GAME';
   renderBoard();
 }
 
 
 function updateBoard(evt) {
+  console.log('selector clicked');
   var cell = evt.target.id;
   var value = currentPlayer === player1 ? 1 : -1;
   if (grid[cell] === 0) {
