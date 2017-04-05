@@ -137,22 +137,22 @@ function updateBoard(evt) {
 
 
   if (grid[35] === 0) {
-    if (currentPlayer === player1) {
       grid[35] = value;
-      currentPlayer = player2;
-    } else {
-      grid[35] = value;
-      currentPlayer = player1;
-    }
-  } if (grid[35] !== 0) {
-      if (currentPlayer === player1) {
-        grid[28] = value;
-        currentPlayer = player2;
-      } else {
-        grid[28] = value;
-        currentPlayer = player1;
-    }
   }
+  if (grid[35] !== 0) {
+      grid[28] = value;
+      currentPlayer = player2;
+  }
+
+  // if (grid[35] !== 0) {
+  //     if (currentPlayer === player1) {
+  //       grid[28] = value;
+  //       currentPlayer = player2;
+  //     } else {
+  //       grid[28] = value;
+  //       currentPlayer = player1;
+  //   }
+  // }
   message.innerHTML = currentPlayer === player1 ? `Player Red's turn. Pick a column to drop your piece.` : `Player Yellow's turn. Pick a column to drop your piece.`;
   findWinner();
   renderBoard();
