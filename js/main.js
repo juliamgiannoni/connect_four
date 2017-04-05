@@ -25,7 +25,7 @@ function startGame() { //adds click event listeners to gameboard
   ];
   winner = '';
   currentPlayer = player1;
-  selector.addEventListener('click', onSelectorClick);
+  selector.addEventListener('click', updateBoard);
   message.innerHTML = `Player Red's turn. Pick a column to drop your piece.`;
   for (var i = 0; i < gameBoard.length; i++) {
     gameBoard[i].addEventListener('click', updateBoard);
@@ -83,10 +83,18 @@ function onSelectorClick(evt) {
 }
 
 function getLastOpenSpot(columnNumber, columnArray) {
-  if //column 1 is selected
-    for (var i = 35; i >= 0; i = i - 7) {
-      if (grid[i] === 0) {
-        //update the board according to value of current player
+  // if column 1 is selected
+var value = currentPlayer === player1 ? 1 : -1;
+    for (var i = 5; i >= 0; i--) {
+      if (firstColumn[i] === 0) {
+        if (currentPlayer === player1) {
+          firstColumn[i] = value;
+          currentPlayer = player2;
+        } else {
+          grid[cell] = value;
+          currentPlayer = player1;
+        }
+        //update the board with current player's value
         //stop for loop once value is placed
       } else { //if the first available column space is not equal to zero
         //continue the for loop and go to the next available column space
@@ -119,21 +127,30 @@ function placeDisk(row, column) {
 
 
 
-function getColumnElements(column) { //
-
-
-}
-
 function updateBoard(evt) {
-  var cell = evt.target.id;
+  var selectedColumn = evt.target.id;
   var value = currentPlayer === player1 ? 1 : -1;
-  if (grid[cell] === 0) {
+  if (selectedColumn === 'column1') {
+    var firstColumn = [grid[0], grid[7], grid[14], grid[21], grid[28], grid[35]];
+    console.log(firstColumn);
+  }
+
+
+  if (grid[35] === 0) {
     if (currentPlayer === player1) {
-      grid[cell] = value;
+      grid[35] = value;
       currentPlayer = player2;
     } else {
-      grid[cell] = value;
+      grid[35] = value;
       currentPlayer = player1;
+    }
+  } if (grid[35] !== 0) {
+      if (currentPlayer === player1) {
+        grid[28] = value;
+        currentPlayer = player2;
+      } else {
+        grid[28] = value;
+        currentPlayer = player1;
     }
   }
   message.innerHTML = currentPlayer === player1 ? `Player Red's turn. Pick a column to drop your piece.` : `Player Yellow's turn. Pick a column to drop your piece.`;
