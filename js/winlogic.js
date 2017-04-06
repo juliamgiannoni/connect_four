@@ -1,10 +1,10 @@
 function getWinner() {
   //grab different arrays - horizontal, veritcal, diagonal
   //check if different arrays are equal to four
-  getFourConsec(grid)
+  getFourConsec(array)
 }
 
-function getFourConsec(array) {
+function getFourConsec(array) { //grabs four consecutive spaces within each array
   var comparisons = [];
   i = 0;
   j = 4;
@@ -16,7 +16,7 @@ function getFourConsec(array) {
   }
 }
 
-function createRows(grid) {
+function createRows(grid) { //converts array from column form to row form
   var rowGrid = [];
   for (var i = 0; i < grid[0].length; i++) {
     for (var k = 0; k < grid.length; k++) {
@@ -24,6 +24,11 @@ function createRows(grid) {
     }
   }
   return rowGrid;
+}
+
+function createDiagonals(grid) { //converts array from column form to diagonal form
+  var diagGrid = [];
+
 }
 
 function findWinner(grid) {
