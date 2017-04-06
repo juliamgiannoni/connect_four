@@ -1,5 +1,33 @@
+function getWinner() {
+  //grab different arrays - horizontal, veritcal, diagonal
+  //check if different arrays are equal to four
+  getFourConsec(grid)
+}
+
+function getFourConsec(array) {
+  var comparisons = [];
+  i = 0;
+  j = 4;
+  // j - i = 4;
+  while (i < 6) {
+    comparisons.push(slice(i, j));
+    j = j + 1;
+    i = i + 1;
+  }
+}
+
+function createRows(grid) {
+  var rowGrid = [];
+  for (var i = 0; i < grid[0].length; i++) {
+    for (var k = 0; k < grid.length; k++) {
+      rowGrid.push(grid[k][i]);
+    }
+  }
+  return rowGrid;
+}
+
 function findWinner(grid) {
-  grid = flattenArray(grid);
+  // grid = flattenArray(grid);
 
   // by rows
   for (var i = 0; i < grid.length; i = i + 7) {
@@ -99,12 +127,12 @@ function findWinner(grid) {
     message.innerHTML = winner === player1 ? `Player Red wins! Reset game.` : `Player Yellow wins! Reset game.`;
     selector.removeEventListener('click', updateBoard);
   } else {
-    checkForTie();
+    checkForTie(grid);
   }
 }
 
 function checkForTie(grid) {
-  grid = flattenArray(grid);
+  var grid = flattenArray(grid);
   var checkForZeros = grid.find(function(element) {
     return element === 0;
   });

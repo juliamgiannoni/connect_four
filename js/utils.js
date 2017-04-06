@@ -21,3 +21,5 @@ function flattenArray(grid) { //flattens grid into one-dimensional array
   }
   return flat;
 }
+
+

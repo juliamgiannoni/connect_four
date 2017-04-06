@@ -48,16 +48,21 @@ function updateBoard(evt) { //updates board with current player's values
 }
 
 function switchPlayer(currentPlayer) { //switches between player 1 and player 2
-  if (currentPlayer === player1) {
-    currentPlayer = player2;
-  } else {
-    currentPlayer = player1;
-  } return currentPlayer;
+  currentPlayer = currentPlayer * -1
+  return currentPlayer
 }
 
 function resetGame() {
-  updateBoard();
   message.innerHTML = `Player Red's turn. Pick a column to drop your piece.`;
+  grid = [
+    [0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0],
+  ];
   renderBoard(grid);
 }
 
