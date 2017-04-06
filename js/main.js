@@ -7,7 +7,7 @@ var grid = [
   [0, 0, 0, 0, 0, 0],
   [0, 0, 0, 0, 0, 0],
   ];
-var dict = {
+var dict = { //converts column ids to numbers
   "column1": 0,
   "column2": 1,
   "column3": 2,
@@ -30,7 +30,7 @@ function initialize() {
   document.querySelector('#newgame').addEventListener('click', startGame);
 }
 
-function startGame() { //adds click event listeners to gameboard
+function startGame() { //adds event listeners to column selectors
   console.log('New game started');
   winner = '';
   currentPlayer = player1;
@@ -40,7 +40,7 @@ function startGame() { //adds click event listeners to gameboard
   renderBoard(grid);
 }
 
-function updateBoard(evt) {
+function updateBoard(evt) { //updates board with current player's values
   var selectedColumn = dict[evt.target.id];
   var value = currentPlayer === player1 ? 1 : -1;
   grid = updateGrid(grid, selectedColumn, value);
@@ -51,7 +51,7 @@ function updateBoard(evt) {
   renderBoard(grid);
 }
 
-function switchPlayer(currentPlayer) {
+function switchPlayer(currentPlayer) { //switches between player 1 and player 2
   if (currentPlayer === player1) {
     currentPlayer = player2;
   } else {
@@ -59,7 +59,7 @@ function switchPlayer(currentPlayer) {
   } return currentPlayer;
 }
 
-function renderBoard(grid) {
+function renderBoard(grid) { //updates display of board to show red or yellow discs
   var newGrid = flattenArray(grid);
   for (var i = 0; i < newGrid.length; i++) {
     if (newGrid[i]) {
@@ -70,5 +70,3 @@ function renderBoard(grid) {
     }
   }
 }
-
-
