@@ -44,7 +44,7 @@ function updateBoard(evt) { //updates board with current player's values
   renderBoard(grid);
   currentPlayer = switchPlayer(currentPlayer);
   message.innerHTML = currentPlayer === player1 ? `Player Red's turn. Pick a column to drop your piece.` : `Player Yellow's turn. Pick a column to drop your piece.`;
-  findWinner(grid);
+  //findWinner(grid);
 }
 
 function switchPlayer(currentPlayer) { //switches between player 1 and player 2

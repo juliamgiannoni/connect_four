@@ -12,6 +12,7 @@ function updateGrid(grid, selectedColumn, value) { //updates grid by checking se
 function flattenArray(grid) { //flattens grid into one-dimensional array
   var length = (grid.length * grid[0].length);
   var flat = new Array(length);
+  // var flat = new Array(length);
   var period = grid.length;
   for (var i = 0; i < grid.length ; i++) {
     for (var k = 0; k < grid[i].length; k++) {

@@ -26,13 +26,56 @@ function createRows(grid) { //converts array from column form to row form
   return rowGrid;
 }
 
-function createDiagonals(grid) { //converts array from column form to diagonal form
-  var diagGrid = [];
-
+function createDiagonals(starting_point, grid, forwards) { //converts array from column form to diagonal form
+  var diagonal = [];
+  var i = starting_point[0];
+  var j = starting_point[1];
+  var i_length = grid[0].length - 1;
+  var j_length = grid.length - 1;
+  diagonal.push(grid[i][j]);
+  while (i < i_length && j < j_length) {
+    if (forwards) {
+      i+=1;
+      j+=1;
+    }
+    if (!forwards) {
+      i+=1;
+      j-=1;
+    }
+    console.log(diagonal);
+      diagonal.push(grid[i][j]);
+  }
+  return diagonal;
 }
 
+var x = createDiagonals([0,1], [[1,2], [3, 4], [5, 6]], false);
+console.log(x);
+
+  // grid = [[1,2,3], [4,5,6]]
+  // var allDiags = [];
+  // var leftDiag = [];
+  // var rightDiag = [];
+  // for (var i = grid.length - 1; i >= 0; i--) { //grabs left diagonals
+  //   for (var k = 0 ; k < grid[0].length; k++) {
+  //     leftDiag.push(grid[i][k]);
+  //     console.log(leftDiag)
+  //   }
+
+  // for (var i = grid.length - 1; i >= 0; i--) {
+  //   for (var k = 0; k < grid[0].length; k++) {
+  //     rightDiag.push(grid[i][k]);
+  //     console.log(rightDiag);
+      // allDiags = rightDiag.concat(leftDiag);
+  //   }
+  // }
+  // return allDiags;
+
+
+
+
+
 function findWinner(grid) {
-  // grid = flattenArray(grid);
+  grid = flattenArray(grid);
 
   // by rows
   for (var i = 0; i < grid.length; i = i + 7) {
@@ -131,13 +174,15 @@ function findWinner(grid) {
   if (winner) {
     message.innerHTML = winner === player1 ? `Player Red wins! Reset game.` : `Player Yellow wins! Reset game.`;
     selector.removeEventListener('click', updateBoard);
+    startGame();
   } else {
     checkForTie(grid);
   }
 }
 
 function checkForTie(grid) {
-  var grid = flattenArray(grid);
+  console.log(grid)
+  // var grid = flattenArray(grid);
   var checkForZeros = grid.find(function(element) {
     return element === 0;
   });
