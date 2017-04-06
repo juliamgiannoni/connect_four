@@ -1,4 +1,5 @@
-function findWinner() {
+function findWinner(grid) {
+  // add return statements
   // by rows
   for (var i = 0; i < grid.length; i = i + 7) {
     if (grid[i] + grid[i+1] + grid[i+2] + grid[i+3] === 4) {
