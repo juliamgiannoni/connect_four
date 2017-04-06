@@ -1,5 +1,6 @@
 function findWinner(grid) {
-  // add return statements
+  grid = flattenArray(grid);
+
   // by rows
   for (var i = 0; i < grid.length; i = i + 7) {
     if (grid[i] + grid[i+1] + grid[i+2] + grid[i+3] === 4) {
@@ -96,15 +97,14 @@ function findWinner(grid) {
 
   if (winner) {
     message.innerHTML = winner === player1 ? `Player Red wins! Reset game.` : `Player Yellow wins! Reset game.`;
-    for (var i = 0; i < gameBoard.length; i++) {
-      gameBoard[i].removeEventListener('click', updateBoard);
-    }
+    selector.removeEventListener('click', updateBoard);
   } else {
     checkForTie();
   }
 }
 
-function checkForTie() {
+function checkForTie(grid) {
+  grid = flattenArray(grid);
   var checkForZeros = grid.find(function(element) {
     return element === 0;
   });

@@ -9,7 +9,7 @@ header, footer {
 }
 
 main {
-  margin: 15px auto;
+  margin: 0 auto;
   width: 1000px;
   position: relative;
 }

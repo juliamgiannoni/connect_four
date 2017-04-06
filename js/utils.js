@@ -1,5 +1,6 @@
 function updateGrid(grid, selectedColumn, value) { //updates grid by checking selected column for available spaces
- for (var i=grid[selectedColumn].length - 1; i >= 0; i--) {
+  // console.log(grid, selectedColumn, value)
+ for (var i = grid[selectedColumn].length - 1; i >= 0; i--) {
    if (grid[selectedColumn][i] === 0) {
      grid[selectedColumn][i] = value;
      return grid;
@@ -9,7 +10,7 @@ function updateGrid(grid, selectedColumn, value) { //updates grid by checking se
 }
 
 function flattenArray(grid) { //flattens grid into one-dimensional array
-  var length = grid.length * grid[0].length;
+  var length = (grid.length * grid[0].length);
   var flat = new Array(length);
   var period = grid.length;
   for (var i = 0; i < grid.length ; i++) {
