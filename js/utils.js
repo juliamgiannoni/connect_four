@@ -1,13 +1,3 @@
-var oldGrid = [
-    [0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0],
-  ];
-
 function updateGrid(grid, selectedColumn, value) {
  for (var i=grid[selectedColumn].length - 1; i >= 0; i--) {
    if (grid[selectedColumn][i] === 0) {
@@ -18,15 +8,14 @@ function updateGrid(grid, selectedColumn, value) {
  return grid;
 }
 
-function flattenArray(oldGrid) {
-  var length = oldGrid.length * oldGrid[0].length;
+function flattenArray(grid) {
+  var length = grid.length * grid[0].length;
   var flat = new Array(length);
-  var period = oldGrid.length;
-
-  for (var i = 0; i < oldGrid.length ; i++) {
-    for (var k = 0; k < oldGrid[i].length; k++) {
+  var period = grid.length;
+  for (var i = 0; i < grid.length ; i++) {
+    for (var k = 0; k < grid[i].length; k++) {
       var q = i + (period * k);
-      flat[q] = oldGrid[i][k];
+      flat[q] = grid[i][k];
     }
   }
   return flat;

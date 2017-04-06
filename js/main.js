@@ -1,11 +1,11 @@
 var grid = [
-    [0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0],
   ];
 var dict = {
   "column1": 0,
@@ -56,8 +56,7 @@ function switchPlayer(currentPlayer) {
     currentPlayer = player2;
   } else {
     currentPlayer = player1;
-  }
-  return currentPlayer;
+  } return currentPlayer;
 }
 
 function renderBoard(grid) {
