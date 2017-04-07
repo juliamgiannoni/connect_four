@@ -32,7 +32,7 @@ function startGame() { // adds event listeners to column selectors
   currentPlayer = player1;
   selector.addEventListener('click', updateBoard);
   button.addEventListener('click', resetGame);
-  message.innerHTML = `Player Red's turn. Hover over a column and click to drop your piece.`;
+  message.innerHTML = `Player Red's turn. Hover over a column and click to drop your disc.`;
   renderBoard(grid);
 }
 
@@ -47,12 +47,12 @@ function updateBoard(evt) { // updates board with current player's values
 
 function switchPlayer(currentPlayer) { // switches between player 1 and player 2
   currentPlayer = currentPlayer * -1
-  message.innerHTML = currentPlayer === player1 ? `Player Red's turn. Hover over a column and click to drop your piece.` : `Player Yellow's turn. Hover over a column and click to drop your piece.`;
+  message.innerHTML = currentPlayer === player1 ? `Player Red's turn. Hover over a column and click to drop your disc.` : `Player Yellow's turn. Hover over a column and click to drop your disc.`;
   return currentPlayer;
 }
 
 function resetGame() { // resets game
-  message.innerHTML = `Player Red's turn. Hover over a column and click to drop your piece.`;
+  message.innerHTML = `Player Red's turn. Hover over a column and click to drop your disc.`;
   grid = [
     [0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0],
