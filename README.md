@@ -13,6 +13,8 @@ The first player to place four of their discs in a row wins the game. If the ent
 
 
 
+
+
 ## Technologies Used
 
 1. HTML
