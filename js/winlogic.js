@@ -18,7 +18,7 @@ function getWinner(grid) {
   console.log('allCombos=', JSON.stringify(allCombos))
 
   //use get four consec function to look inside each combo of all combos
-
+  // for (var i = 0; i < )
   // find four consecutive cells
 
   // add value of those cells
@@ -125,11 +125,12 @@ function getFourConsec(array) { //grabs four consecutive spaces within each arra
   i = 0;
   j = 4;
   // j - i = 4;
-  while (i < 6) {
-    comparisons.push(slice(i, j));
+  while (j <= array.length) {
+    comparisons.push(array.slice(i, j));
     j = j + 1;
     i = i + 1;
   }
+  return comparisons;
 }
 
 function sum(array) {
