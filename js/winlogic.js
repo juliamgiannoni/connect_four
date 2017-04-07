@@ -20,20 +20,6 @@ function getWinner(grid) {
   return false;
 }
 
-function test() { // test function for tie game
-  grid = [
-    [-1,-1,-1,1,1,1],
-    [1,1,1,-1,-1,-1],
-    [1,-1,-1,1,-1,1],
-    [-1,1,-1,-1,1,1],
-    [-1,1,1,-1,1,-1],
-    [1,-1,1,-1,1,1],
-    [0,1,-1,1,-1,-1]
-  ];
-  renderBoard(grid);
-  getWinner(grid)
-}
-
 function generateRows(grid) { // converts grid from column form to row form
   var allRows = [];
   var cols = grid[0].length;
@@ -131,4 +117,18 @@ function isFourConsec(array) { // checks if any of the 4-element arrays are equa
     if (sum(consecSet[i]) === -4) return 'player2';
   }
   return false;
+}
+
+function test() { // test function for tie game
+  grid = [
+    [-1,-1,-1,1,1,1],
+    [1,1,1,-1,-1,-1],
+    [1,-1,-1,1,-1,1],
+    [-1,1,-1,-1,1,1],
+    [-1,1,1,-1,1,-1],
+    [1,-1,1,-1,1,1],
+    [0,1,-1,1,-1,-1]
+  ];
+  renderBoard(grid);
+  getWinner(grid)
 }

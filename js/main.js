@@ -48,7 +48,7 @@ function updateBoard(evt) { // updates board with current player's values
 function switchPlayer(currentPlayer) { // switches between player 1 and player 2
   currentPlayer = currentPlayer * -1
   message.innerHTML = currentPlayer === player1 ? `Player Red's turn. Hover over a column and click to drop your piece.` : `Player Yellow's turn. Hover over a column and click to drop your piece.`;
-  return currentPlayer
+  return currentPlayer;
 }
 
 function resetGame() { // resets game
