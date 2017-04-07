@@ -1,4 +1,4 @@
-var grid = [
+var grid = [ // empty state of grid
   [0, 0, 0, 0, 0, 0],
   [0, 0, 0, 0, 0, 0],
   [0, 0, 0, 0, 0, 0],
@@ -7,7 +7,7 @@ var grid = [
   [0, 0, 0, 0, 0, 0],
   [0, 0, 0, 0, 0, 0],
   ];
-var dict = { //converts column ids to numbers
+var dict = { // converts column ids to numbers
   'column1': 0,
   'column2': 1,
   'column3': 2,
@@ -27,7 +27,7 @@ var button = document.querySelector('#resetgame')
 
 startGame();
 
-function startGame() { //adds event listeners to column selectors
+function startGame() { // adds event listeners to column selectors
   winner = '';
   currentPlayer = player1;
   selector.addEventListener('click', updateBoard);
@@ -36,24 +36,22 @@ function startGame() { //adds event listeners to column selectors
   renderBoard(grid);
 }
 
-function updateBoard(evt) { //updates board with current player's values
+function updateBoard(evt) { // updates board with current player's values
   var selectedColumn = dict[evt.target.id];
   if (selectedColumn === undefined) return;
   var value = currentPlayer === player1 ? 1 : -1;
   grid = updateGrid(grid, selectedColumn, value);
   currentPlayer = switchPlayer(currentPlayer);
-
   renderBoard(grid);
-  //findWinner(grid);
 }
 
-function switchPlayer(currentPlayer) { //switches between player 1 and player 2
+function switchPlayer(currentPlayer) { // switches between player 1 and player 2
   currentPlayer = currentPlayer * -1
   message.innerHTML = currentPlayer === player1 ? `Player Red's turn. Hover over a column and click to drop your piece.` : `Player Yellow's turn. Hover over a column and click to drop your piece.`;
   return currentPlayer
 }
 
-function resetGame() {
+function resetGame() { // resets game
   message.innerHTML = `Player Red's turn. Hover over a column and click to drop your piece.`;
   grid = [
     [0, 0, 0, 0, 0, 0],
