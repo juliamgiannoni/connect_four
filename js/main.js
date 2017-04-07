@@ -41,14 +41,15 @@ function updateBoard(evt) { //updates board with current player's values
   if (selectedColumn === undefined) return;
   var value = currentPlayer === player1 ? 1 : -1;
   grid = updateGrid(grid, selectedColumn, value);
-  renderBoard(grid);
   currentPlayer = switchPlayer(currentPlayer);
-  message.innerHTML = currentPlayer === player1 ? `Player Red's turn. Pick a column to drop your piece.` : `Player Yellow's turn. Pick a column to drop your piece.`;
+
+  renderBoard(grid);
   //findWinner(grid);
 }
 
 function switchPlayer(currentPlayer) { //switches between player 1 and player 2
   currentPlayer = currentPlayer * -1
+  message.innerHTML = currentPlayer === player1 ? `Player Red's turn. Pick a column to drop your piece.` : `Player Yellow's turn. Pick a column to drop your piece.`;
   return currentPlayer
 }
 
@@ -66,8 +67,18 @@ function resetGame() {
   renderBoard(grid);
 }
 
-function renderBoard(grid) { //updates display of board to show red or yellow discs
+function renderBoard(grid) { // updates display of board to show red or yellow discs
   var newGrid = flattenArray(grid);
+  if (getWinner(grid) === 'player1') {
+    console.log(message)
+    message.innerHTML = 'Player Red wins! Reset game.';
+  }
+  if (getWinner(grid) === 'player2') {
+    message.innerHTML = `Player Yellow wins! Reset game.`;
+  }
+  if (newGrid.indexOf(0) === -1) {
+    message.innerHTML = `Game is tied! Reset game.`;
+  }
   for (var i = 0; i < newGrid.length; i++) {
     if (newGrid[i]) {
       newGrid[i] === player1 ? gameBoard[i].innerHTML = '<img src="./assets/redpiece.png">' : gameBoard[i].innerHTML = '<img src="./assets/yellowpiece.png">';

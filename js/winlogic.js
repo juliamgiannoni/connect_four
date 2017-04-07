@@ -1,29 +1,24 @@
 function getWinner(grid) {
   var allCombos = [];
 
-  // push all rows into allCombos
-  // TODO: fix me
-  // console.log(createRows(grid))
+  for (var k = 0; k < generateRows(grid).length; k++) {
+    allCombos.push(generateRows(grid)[k]);
+  }
 
   // push all diagonals into allCombos
   var allDiagonals = generateAllDiagonals(grid)
   for (var i = 0; i < allDiagonals.length; i++) {
-    allCombos.push(allDiagonals[i])
+    allCombos.push(allDiagonals[i]);
   }
 
   // push all columns into allCombos
   for (var i = 0; i < grid.length; i++) {
     allCombos.push(grid[i]);
   }
-  // console.log('allCombos=', JSON.stringify(allCombos))
 
   //use get four consec function to look inside each combo of all combos
   for (var i = 0; i < allCombos.length; i++) {
     var combo = allCombos[i];
-
-    // find four consecutive cells
-    // add value of those cells
-    // check if 4 or -4
     var result = isFourConsec(combo);
     if (result) {
       return result;
@@ -33,18 +28,6 @@ function getWinner(grid) {
 
 }
 
-
-
-
-function createRows(grid) { //converts array from column form to row form
-  var rowGrid = [];
-  for (var i = 0; i < grid[0].length; i++) {
-    for (var k = 0; k < grid.length; k++) {
-      rowGrid.push(grid[k][i]);
-    }
-  }
-  return rowGrid;
-}
 
 function test() {
   grid = [
@@ -62,8 +45,23 @@ function test() {
 
     [0,        0,       0,       0,       0,         0]
   ];
+console.log(generateRows(grid))
   renderBoard(grid);
   getWinner(grid)
+}
+
+function generateRows(grid) { //converts array from column form to row form
+  var allRows = [];
+  var cols = grid[0].length;
+  var rows = grid.length;
+  grid[0].forEach(function (outerElem, i) {
+    var row = [];
+    grid.forEach(function(innerElem, j) {
+      row.push(grid[j][i]);
+    })
+    allRows.push(row);
+  });
+  return allRows;
 }
 
 function stepUp(starting_point, grid) {
