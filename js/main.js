@@ -70,7 +70,6 @@ function resetGame() {
 function renderBoard(grid) { // updates display of board to show red or yellow discs
   var newGrid = flattenArray(grid);
   if (getWinner(grid) === 'player1') {
-    console.log(message)
     message.innerHTML = 'Player Red wins! Reset game.';
   }
   if (getWinner(grid) === 'player2') {
