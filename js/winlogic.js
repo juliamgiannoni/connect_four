@@ -35,6 +35,27 @@ function test() {
   console.log(stepUp([6, 5], grid));
 }
 
+function stepUp(starting_point, grid) {
+  var diagonal = [];
+  var i = starting_point[0];
+  var j = starting_point[1];
+  var i_length = grid.length - 1;
+  var j_length = grid[0].length - 1;
+  // while i & j are positive, decrement i & j by one
+  while (i >= 0 && j >= 0) {
+    console.log(i, j);
+    console.log(i, j);
+    console.log(grid[i][j]);
+    console.log('d=',diagonal);
+    diagonal.push(grid[i][j]);
+    i-=1;
+    j-=1;
+  }
+  console.log(diagonal);
+
+  return diagonal;
+}
+
 function generateAllDiagonals(grid) {
   var allDiagonals = [];
   grid[0].forEach(function(element, index) {
@@ -61,20 +82,6 @@ function stepDown(starting_point, grid) {
   return diagonal;
 }
 
-function stepUp(starting_point, grid) {
-  var diagonal = [];
-  var i = starting_point[0];
-  var j = starting_point[1];
-  var i_length = grid.length - 1;
-  var j_length = grid[0].length - 1;
-  diagonal.push(grid[i][j]);
-  while (i < i_length && j < j_length) {
-    i-=1;
-    j+=1;
-    diagonal.push(grid[i][j]);
-  }
-  return diagonal;
-}
 
 function getFourConsec(array) { //grabs four consecutive spaces within each array
   var comparisons = [];
