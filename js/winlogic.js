@@ -1,16 +1,16 @@
 function getWinner(grid) {
   var allCombos = [];
-  for (var k = 0; k < generateRows(grid).length; k++) { // pushes all rows into allCombos
+  for (var k = 0; k < generateRows(grid).length; k++) {
     allCombos.push(generateRows(grid)[k]);
   }
-  var allDiagonals = generateAllDiagonals(grid); // pushes all diagonals into allCombos
+  var allDiagonals = generateAllDiagonals(grid);
   for (var i = 0; i < allDiagonals.length; i++) {
     allCombos.push(allDiagonals[i]);
   }
-  for (var i = 0; i < grid.length; i++) { // pushes all columns into allCombos
+  for (var i = 0; i < grid.length; i++) {
     allCombos.push(grid[i]);
   }
-  for (var i = 0; i < allCombos.length; i++) {  // uses isFourConsec function to look inside each combo of allCombos
+  for (var i = 0; i < allCombos.length; i++) {
     var combo = allCombos[i];
     var result = isFourConsec(combo);
     if (result) {
@@ -20,7 +20,7 @@ function getWinner(grid) {
   return false;
 }
 
-function generateRows(grid) { // converts grid from column form to row form
+function generateRows(grid) {
   var allRows = [];
   var cols = grid[0].length;
   var rows = grid.length;
@@ -34,7 +34,7 @@ function generateRows(grid) { // converts grid from column form to row form
   return allRows;
 }
 
-function stepUp(starting_point, grid) { // grabs all forward diagonals and pushes to new array
+function stepUp(starting_point, grid) {
   var diagonal = [];
   var i = starting_point[0];
   var j = starting_point[1];
@@ -48,7 +48,7 @@ function stepUp(starting_point, grid) { // grabs all forward diagonals and pushe
   return diagonal;
 }
 
-function stepDown(starting_point, grid) { // grabs all backward diagonals and pushes to new array
+function stepDown(starting_point, grid) {
   var diagonal = [];
   var i = starting_point[0];
   var j = starting_point[1];
@@ -63,7 +63,7 @@ function stepDown(starting_point, grid) { // grabs all backward diagonals and pu
   return diagonal;
 }
 
-function generateAllDiagonals(grid) { // pushes all forward & backward diagonal arrays to allDiagonals
+function generateAllDiagonals(grid) {
   var allDiagonals = [];
   allDiagonals.push(stepDown([0, 5], grid));
   allDiagonals.push(stepDown([0, 4], grid));
@@ -92,7 +92,7 @@ function generateAllDiagonals(grid) { // pushes all forward & backward diagonal 
   return allDiagonals;
 }
 
-function getFourConsec(array) { // grabs four consecutive spaces within each array
+function getFourConsec(array) {
   var comparisons = [];
   i = 0;
   j = 4;
@@ -104,13 +104,13 @@ function getFourConsec(array) { // grabs four consecutive spaces within each arr
   return comparisons;
 }
 
-function sum(array) { // finds sum of each 4-element array
+function sum(array) {
   return array.reduce(function(a, b) {
     return (a + b);
   });
 }
 
-function isFourConsec(array) { // checks if any of the 4-element arrays are equal to 4 (player1) or -4 (player2)
+function isFourConsec(array) {
   var consecSet = getFourConsec(array);
   for (var i = 0; i < consecSet.length; i++) {
     if (sum(consecSet[i]) === 4) return 'player1';
@@ -119,7 +119,7 @@ function isFourConsec(array) { // checks if any of the 4-element arrays are equa
   return false;
 }
 
-function test() { // test function for tie game
+function test() {
   grid = [
     [-1,-1,-1,1,1,1],
     [1,1,1,-1,-1,-1],
