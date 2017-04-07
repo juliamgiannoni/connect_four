@@ -13,7 +13,7 @@ The first player to place four of their discs in a row wins the game. If the ent
 
 
 #### Progress Over Time:
-[http://gph.is/2nLNmV8]
+![](https://media.giphy.com/media/eE57nCxFT9PJ6/giphy.gif)
 
 ## Technologies Used
 
