@@ -1,9 +1,9 @@
 function getWinner() {
-  //grab different arrays - horizontal, veritcal, diagonal
-  //check if different arrays are equal to four
-  getFourConsec(array)
-}
 
+  // createRows(grid);
+  // getFourConsec(grid);
+
+}
 
 function createRows(grid) { //converts array from column form to row form
   var rowGrid = [];
@@ -15,58 +15,66 @@ function createRows(grid) { //converts array from column form to row form
   return rowGrid;
 }
 
-function createTopDiagonals(starting_point, grid, forwards) { //converts array from column form to diagonal form
+function test() {
+  grid = [
+    [0,        1,       1,       -1,      1,        -1],
+
+    [0,        0,       1,       1,      -1,         1],
+
+    [0,        0,       -1,      1,      -1,        -1],
+
+    [0,        0,       0,       -1,      1,         1],
+
+    [0,        0,       0,       1,      -1,        -1],
+
+    [0,        0,       0,       0,      -1,         1],
+
+    [0,        0,       0,       0,       0,         0]
+  ];
+  renderBoard(grid);
+  console.log(stepUp([6, 5], grid));
+}
+
+function generateAllDiagonals(grid) {
+  var allDiagonals = [];
+  grid[0].forEach(function(element, index) {
+    allDiagonals.push(stepDown([0, index], grid));
+  })
+  // grid.forEach(function(element, index) {
+  //   allDiagonals.push(stepDown([index, 0], grid));
+  // })
+  console.log(allDiagonals);
+}
+
+function stepDown(starting_point, grid) {
   var diagonal = [];
   var i = starting_point[0];
   var j = starting_point[1];
-  var i_length = grid[0].length - 1;
-  var j_length = grid.length - 1;
+  var i_length = grid.length - 1;
+  var j_length = grid[0].length - 1;
   diagonal.push(grid[i][j]);
-  while ((i < i_length) && (j < j_length) && (i >= 0) && (j >= 0))  {
-    if (forwards) {
-      i+=1;
-      j+=1;
-    }
-    if (!forwards) {
-      i+=1;
-      j-=1;
-    }
-    if (grid[i][j] !== undefined) {
-      diagonal.push(grid[i][j]);
-    }
-    console.log(diagonal);
+  while (i < i_length && j > 0) {
+    i+=1;
+    j-=1;
+    diagonal.push(grid[i][j]);
   }
   return diagonal;
 }
 
-function createSideDiagonals(starting_point, grid, forwards) { //converts array from column form to diagonal form
+function stepUp(starting_point, grid) {
   var diagonal = [];
   var i = starting_point[0];
   var j = starting_point[1];
-  var i_length = grid[0].length - 1;
-  var j_length = grid.length - 1;
+  var i_length = grid.length - 1;
+  var j_length = grid[0].length - 1;
   diagonal.push(grid[i][j]);
-  while ((i < i_length) && (j < j_length) && (i >= 0) && (j >= 0))  {
-    if (forwards) {
-      i+=1;
-      j+=1;
-    }
-    if (!forwards) {
-      i-=1;
-      j+=1;
-    }
-    if (grid[i][j] !== undefined) {
-      diagonal.push(grid[i][j]);
-    }
-    console.log(diagonal);
+  while (i < i_length && j < j_length) {
+    i-=1;
+    j+=1;
+    diagonal.push(grid[i][j]);
   }
   return diagonal;
 }
-
-var x = createTopDiagonals([0,1], [[1,2], [3, 4], [5, 6]], false);
-console.log(x);
-var x = createSideDiagonals([0,1], [[1,2], [3, 4], [5, 6]], false);
-console.log(x);
 
 function getFourConsec(array) { //grabs four consecutive spaces within each array
   var comparisons = [];
@@ -81,9 +89,8 @@ function getFourConsec(array) { //grabs four consecutive spaces within each arra
 }
 
 function sum(array) {
-  return array.reduce((a, b) {
+  return array.reduce(a, b);
     return (a + b);
-  })
 }
 
 function isFourConsec(array) {
@@ -94,123 +101,3 @@ function isFourConsec(array) {
   }
   return false;
 }
-
-
-
-
-// function findWinner(grid) {
-//   grid = flattenArray(grid);
-
-//   // by rows
-//   for (var i = 0; i < grid.length; i = i + 7) {
-//     if (grid[i] + grid[i+1] + grid[i+2] + grid[i+3] === 4) {
-//       winner = player1;
-//     }
-//     if (grid[i] + grid[i+1] + grid[i+2] + grid[i+3] === -4) {
-//       winner = player2;
-//     }
-//   }
-//   for (var i = 1; i < grid.length; i = i + 7) {
-//     if (grid[i] + grid[i+1] + grid[i+2] + grid[i+3] === 4) {
-//       winner = player1;
-//     }
-//     if (grid[i] + grid[i+1] + grid[i+2] + grid[i+3] === -4) {
-//       winner = player2;
-//     }
-//   }
-//   for (var i = 2; i < grid.length; i = i + 7) {
-//     if (grid[i] + grid[i+1] + grid[i+2] + grid[i+3] === 4) {
-//       winner = player1;
-//     }
-//     if (grid[i] + grid[i+1] + grid[i+2] + grid[i+3] === -4) {
-//       winner = player2;
-//     }
-//   }
-//   for (var i = 3; i < grid.length; i = i + 7) {
-//     if (grid[i] + grid[i+1] + grid[i+2] + grid[i+3] === 4) {
-//       winner = player1;
-//     }
-//     if (grid[i] + grid[i+1] + grid[i+2] + grid[i+3] === -4) {
-//       winner = player2;
-//     }
-//   }
-
-//   // by columns
-//   for (var i = 0; i < grid.length; i++) {
-//     if (grid[i] + grid[i+7] + grid[i+14] + grid[i+21] === 4) {
-//       winner = player1;
-//     }
-//     if (grid[i] + grid[i+7] + grid[i+14] + grid[i+21] === -4) {
-//       winner = player2;
-//     }
-//   }
-
-//   // by diagonals
-//   for (var i = 0; i < 4; i++) {
-//     if (grid[i] + grid[i+8] + grid[i+16] + grid[i+24] === 4) {
-//       winner = player1;
-//     }
-//     if (grid[i] + grid[i+8] + grid[i+16] + grid[i+24] === -4) {
-//       winner = player2;
-//     }
-//   }
-//   for (var i = 7; i < 11; i++) {
-//     if (grid[i] + grid[i+8] + grid[i+16] + grid[i+24] === 4) {
-//       winner = player1;
-//     }
-//     if (grid[i] + grid[i+8] + grid[i+16] + grid[i+24] === -4) {
-//       winner = player2;
-//     }
-//   }
-//   for (var i = 14; i < 18; i++) {
-//     if (grid[i] + grid[i+8] + grid[i+16] + grid[i+24] === 4) {
-//       winner = player1;
-//     }
-//     if (grid[i] + grid[i+8] + grid[i+16] + grid[i+24] === -4) {
-//       winner = player2;
-//     }
-//   }
-//   for (var i = 3; i < 7; i++) {
-//     if (grid[i] + grid[i+6] + grid[i+12] + grid[i+18] === 4) {
-//       winner = player1;
-//     }
-//     if (grid[i] + grid[i+6] + grid[i+12] + grid[i+18] === -4) {
-//       winner = player2;
-//     }
-//   }
-//   for (var i = 10; i < 14; i++) {
-//     if (grid[i] + grid[i+6] + grid[i+12] + grid[i+18] === 4) {
-//       winner = player1;
-//     }
-//     if (grid[i] + grid[i+6] + grid[i+12] + grid[i+18] === -4) {
-//       winner = player2;
-//     }
-//   }
-//   for (var i = 17; i < 21; i++) {
-//     if (grid[i] + grid[i+6] + grid[i+12] + grid[i+18] === 4) {
-//       winner = player1;
-//     }
-//     if (grid[i] + grid[i+6] + grid[i+12] + grid[i+18] === -4) {
-//       winner = player2;
-//     }
-//   }
-
-//   if (winner) {
-//     message.innerHTML = winner === player1 ? `Player Red wins! Reset game.` : `Player Yellow wins! Reset game.`;
-//     selector.removeEventListener('click', updateBoard);
-//     startGame();
-//   } else {
-//     checkForTie(grid);
-//   }
-// }
-
-// function checkForTie(grid) {
-//   console.log(grid)
-//   // var grid = flattenArray(grid);
-//   var checkForZeros = grid.find(function(element) {
-//     return element === 0;
-//   });
-//   if (checkForZeros !== 0) {
-//     message.innerHTML = `Game is tied. Reset game.`;
-//   }
-// }
