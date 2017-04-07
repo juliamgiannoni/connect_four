@@ -12,8 +12,8 @@ The objective of the game is to place four discs in a row horizontally, vertical
 The first player to place four of their discs in a row wins the game. If the entire grid has been filled and neither player has placed four consecutive discs, the game is tied.
 
 
-
-
+#### Progress Over Time:
+[http://gph.is/2nLNmV8]
 
 ## Technologies Used
 
@@ -22,10 +22,12 @@ The first player to place four of their discs in a row wins the game. If the ent
 3. JavaScript
 4. Google Fonts
 
+
 ## Getting Started
 
 Connect Four can be played [here](https://juliamijiyi.github.io/Connect_Four/).
 
+
 ## Next Steps
 
-In order to improve my game, the next steps
+In order to improve my game, I would add the following features:
