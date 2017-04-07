@@ -15,21 +15,26 @@ function getWinner(grid) {
   for (var i = 0; i < grid.length; i++) {
     allCombos.push(grid[i]);
   }
-  console.log('allCombos=', JSON.stringify(allCombos))
+  // console.log('allCombos=', JSON.stringify(allCombos))
 
   //use get four consec function to look inside each combo of all combos
-  // for (var i = 0; i < )
-  // find four consecutive cells
+  for (var i = 0; i < allCombos.length; i++) {
+    var combo = allCombos[i];
 
-  // add value of those cells
-
-  // check if 4 or -4
-
-  // determine winner
-
-  // if no winner, tie game
+    // find four consecutive cells
+    // add value of those cells
+    // check if 4 or -4
+    var result = isFourConsec(combo);
+    if (result) {
+      return result;
+    }
+  }
+  return false
 
 }
+
+
+
 
 function createRows(grid) { //converts array from column form to row form
   var rowGrid = [];
@@ -134,8 +139,9 @@ function getFourConsec(array) { //grabs four consecutive spaces within each arra
 }
 
 function sum(array) {
-  return array.reduce(a, b);
+  return array.reduce(function(a, b) {
     return (a + b);
+  });
 }
 
 function isFourConsec(array) {
